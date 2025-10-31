@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task</title>
+
+  
+  <link rel="stylesheet" href="css/style.css" />
+
+  <meta name="theme-color" content="#0b3954" />
+</head>
+<body>
+ 
+
+  <header role="banner" class="site-header">
+
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.jpg" alt="my logo"/>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      🌙
+    </button>
+
+      <nav role="navigation" aria-label="Primary" class="primary-nav">
+        <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-menu"
+        aria-label="Toggle navigation"
+        type="button"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        </button>
+
+      <!-- ✅ Navigation menu -->
+      <ul id="primary-menu" class="nav-list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#task-dashboard">Task Dashboard</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      </nav>
+      
+    </div>
+  </header>
+
+  <main id="main" role="main" tabindex="-1">
+    
+    <section id="about" class="panel about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading">About</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nulla quas eius modi rerum amet est ullam eligendi deserunt blanditiis, possimus quia recusandae quasi iure libero sint optio ex veniam.</p>
+      </div>
+    </section>
+
+    
+  <section id="projects" class="panel projects" aria-labelledby="projects-heading">
+        <h2>Projects</h2>
+
+  <div class="project">
+    <button class="project-toggle">🌐 Portfolio Website</button>
+    <div class="project-content">
+      <p>This project showcases a responsive personal portfolio website built using HTML, CSS, and JavaScript. It features smooth scrolling, light/dark mode, and a contact form.</p>
+    </div>
+  </div>
+
+  <div class="project">
+    <button class="project-toggle">📱 Mobile Attendance App</button>
+    <div class="project-content">
+      <p>A fingerprint-based attendance monitoring system built with Flutter and MongoDB, allowing lecturers to manage classes and track student attendance in real time.</p>
+    </div>
+  </div>
+
+  <div class="project">
+    <button class="project-toggle">💡 Task Dashboard</button>
+    <div class="project-content">
+      <p>An interactive dashboard that lets users manage tasks, mark progress, and visualize performance with charts and notifications.</p>
+    </div>
+  </div>
+  </section>
+
+    
+    <section id="task-dashboard" class="panel tasks" aria-labelledby="tasks-heading">
+      <div class="container">
+  <h2 id="tasks-heading">Task Dashboard</h2>
+
+  <!-- Counters -->
+  <div class="task-counters" aria-hidden="false">
+    <div class="counter"><strong>Total Task :</strong> <span id="total-tasks">0</span></div>
+    <div class="counter"><strong>Task Completed:</strong> <span id="completed-tasks">0</span></div>
+  </div>
+
+  <!-- New task form -->
+  <form id="new-task-form" class="task-form" aria-label="Add new task">
+    <input id="task-title" type="text" placeholder="Task title" required />
+    <textarea id="task-desc" rows="2" placeholder="Short description (optional)"></textarea>
+    <div class="form-row-actions">
+      <button type="submit" class="btn-primary">Add Task</button>
+      <button type="button" id="clear-all-btn" class="btn-ghost">Clear All</button>
+    </div>
+  </form>
+
+  <!-- Task list -->
+  <div id="tasks-wrapper" class="tasks-wrapper" aria-live="polite">
+    <!-- Tasks rendered here -->
+    <ul id="tasks-list" class="tasks-list-advanced" aria-label="Task list"></ul>
+  </div>
+</div>
+    </section>
+
+    
+    <section id="contact" class="panel contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading">Contact</h2>
+        <form class="contact-form">
+          <div class="form-row">
+            
+            <input id="name" type="text" placeholder="Name" required />
+          </div>
+          <div class="form-row">
+           
+            <input id="email" type="text" placeholder="Email" required />
+          </div>
+          <div class="form-row">
+    
+            <textarea id="message" name="message" placeholder="Message" rows="6"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo" class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> My Task. <a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

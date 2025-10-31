@@ -1,0 +1,630 @@
+:root {
+  --bg-color: #0b1e36;
+  --text-color: #ffffff;
+  --accent-color: #1f6feb;
+  --header-bg: rgba(15, 39, 75, 0.8);
+  --footer-bg: #0f274b;
+  --font-header: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Light Theme Variables */
+body.light-theme {
+  --bg-color: #f5f5f5;
+  --text-color: #0b1e36;
+  --accent-color: #1f6feb;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --footer-bg: #e9ecf3;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  color: var(--text-color);
+  background: var(--bg-color);
+  font-family: var(--font-body);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: 600;
+}
+
+/* Header */
+.site-header {
+  background: var(--header-bg);
+  border-bottom: 2px solid var(--accent-color);
+  padding: 1.5rem 3rem;
+  font-family: var(--font-header);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  z-index: 100;
+}
+
+/* ✅ FIX: Logo hover selector (remove space between img:hover) */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 40px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+/* ✅ Correct hover selector */
+.logo img:hover {
+  box-shadow: 0 0 20px rgba(0, 153, 235, 0.8);
+  transform: scale(1.05);
+}
+
+/* Navigation */
+.primary-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.tasks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; /* centers horizontally */
+  width: fit-content; /* keeps the width tight around the content */
+  text-align: left; /* text stays left-aligned for readability */
+}
+
+.tasks-list li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.tasks-list input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2); /* makes it more visible */
+  accent-color: var(--accent-color, #00bfff); /* optional color match */
+}
+
+.tasks-list label {
+  display: inline-block;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Add this if you want the whole section centered on the page */
+.tasks-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontally */
+  justify-content: center; /* center vertically */
+  min-height: 200px; /* adjust based on space */
+}
+/* --- Task Manager Styles --- */
+#task-dashboard .container {
+  background: transparent;
+  border: 1px solid rgba(0, 170, 255, 0.4);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+
+#task-dashboard .container:hover {
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.8);
+  border-color: rgba(0, 200, 255, 0.8);
+}
+
+/* Counters */
+.task-counters {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.task-counters .counter {
+  background: rgba(255,255,255,0.03);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid rgba(31,111,235,0.12);
+  font-weight: 600;
+}
+
+/* New task form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 900px;
+  margin: 0.5rem auto 1rem auto;
+}
+
+.task-form input,
+.task-form textarea {
+  background: rgba(11,30,54,0.6);
+  color: white;
+  border: 1px solid rgba(31,111,235,0.25);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Hover/focus glow for input fields */
+.task-form input:focus,
+.task-form textarea:focus {
+  border-color: rgba(0, 200, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+  outline: none;
+}
+
+/* Placeholders always white */
+.task-form input::placeholder,
+.task-form textarea::placeholder,
+body.light-theme .task-form input::placeholder,
+body.light-theme .task-form textarea::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+/* Buttons row below description */
+.form-row-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #3382ff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px #00bfff;
+}
+
+/* Ghost (Clear All) button */
+.btn-ghost {
+  background: var(--accent-color);
+  color: var(--text-color);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: #3382ff;
+  box-shadow: 0 0 10px #00bfff;
+}
+
+/* Ensure ghost button visible in light mode */
+body.light-theme .btn-ghost {
+  color: #fff;
+  
+  background: var(--accent-color);
+}
+
+/* Tasks list */
+.tasks-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tasks-list-advanced {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Single task card */
+.task-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  background: rgba(15,39,75,0.6);
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(31,111,235,0.08);
+  transition: all 0.25s ease;
+}
+
+/* Add soft blue glow on hover */
+.task-item:hover {
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.4);
+  transform: translateY(-2px);
+  border-color: rgba(0, 200, 255, 0.5);
+}
+
+/* Checkbox column */
+.task-item .task-checkbox {
+  margin-left: 6px;
+}
+
+/* Task text area */
+.task-item .task-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.task-item .task-title {
+  font-weight: 700;
+  color: var(--text-color);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.task-item .task-desc {
+  font-size: 0.92rem;
+  color: rgba(224,230,255,0.85);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Actions (edit/delete) */
+.task-item .task-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Icon buttons */
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(255,255,255,0.03);
+  color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(31,111,235,0.15);
+}
+
+/* Completed task style */
+.task-item.completed {
+  background: rgba(31,111,235,0.12);
+  opacity: 0.95;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: rgba(224,230,255,0.65);
+}
+
+/* Edit mode styling */
+.task-item.editing {
+  outline: 2px solid rgba(31,111,235,0.18);
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .form-row-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+/* ✅ Hamburger Button */
+.nav-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: var(--text-color);
+}
+
+/* Hover glow */
+.nav-toggle:hover {
+  color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* ✅ Light Mode Visibility Fix */
+body.light-theme .nav-toggle {
+  color: #0b1e36; /* dark text color for visibility */
+}
+
+body.light-theme .nav-toggle:hover {
+  color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 1rem;
+    top: 100%;
+    background: var(--header-bg);
+    width: 200px;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Hamburger bars */
+  .nav-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--text-color); /* ✅ dynamic color */
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate bars into X */
+  .nav-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+::placeholder{
+  color: white;
+  opacity: 1;
+}
+
+/* Panels */
+.panel {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.panel h2 {
+  color: var(--accent-color);
+}
+.project {
+  margin: 1rem auto;
+  max-width: 600px;
+  background: rgba(15, 39, 75, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(31, 111, 235, 0.3);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project:hover {
+  box-shadow: 0 0 20px rgba(31, 111, 235, 0.7);
+  transform: scale(1.02);
+}
+
+.project-toggle {
+  width: 100%;
+  background: var(--accent-color);
+  color: #fff;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-toggle:hover {
+  background: #3382ff;
+  box-shadow: 0 0 10px #3382ff;
+}
+
+.project-content {
+  max-height: 0;
+  overflow: hidden;
+  background:transparent;
+  padding: 0 1rem;
+  color: var(--project-text, #fff);
+  font-size: 1rem;
+  transition: max-height 0.4s ease, padding 0.3s ease, background 0.4s ease, color 0.4s ease;
+}
+
+.project-content.open {
+  max-height: 200px;
+  padding: 1rem;
+}
+body .light-theme .project-content{
+  background-color: rgba(255,255,255,0.9);
+  color: #0b1e36;
+}
+
+/* Buttons & Inputs */
+button, input, textarea {
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+button {
+  background: var(--accent-color);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #3382ff;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--footer-bg);
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.site-footer a {
+  color: var(--accent-color);
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: transparent;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 170, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form:hover {
+  box-shadow: 0 0 20px rgba(31, 111, 235, 0.9);
+  transform: scale(1.02);
+}
+
+.contact-form .form-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.contact-form label {
+  display: block;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #1f6feb;
+  background: #0b1e36;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #3382ff;
+  box-shadow: 0 0 10px #3382ff;
+}
+
+.contact-form button {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #3382ff;
+  box-shadow: 0 0 15px #3382ff, 0 0 30px rgba(51, 130, 255, 0.6);
+  transform: scale(1.05);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.form-actions button {
+  width: 120px;
+  font-size: 1rem;
+  font-weight: 600;
+}
