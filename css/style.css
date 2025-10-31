@@ -493,6 +493,13 @@ body.light-theme .nav-toggle:hover {
   background: #3382ff;
   box-shadow: 0 0 10px #3382ff;
 }
+body.light-theme .project-toggle{
+  background-color: rgb(148, 146, 146);
+}
+body.light-theme .project-toggle:hover{
+  background: #3382ff;
+  box-shadow: 0 0 10px #3382ff;
+}
 
 .project-content {
   max-height: 0;
@@ -585,10 +592,13 @@ button:hover {
   padding: 10px 12px;
   border-radius: 6px;
   border: 1px solid #1f6feb;
-  background: #0b1e36;
-  color: var(--text-color);
+  background: rgba(11,30,54,0.6);
+  color: white;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+body .light-theme .contact-form input{
+  background:rgb(103, 102, 102);
 }
 
 .contact-form input:hover,
